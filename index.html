@@ -7,8 +7,54 @@
   <link rel="stylesheet" href="project.css" />
 </head>
 <body>
-  <div class="app">
-    <h1>💰 Catatan Keuangan</h1>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">CK</span>
+        <span>Catatan Keuangan</span>
+      </div>
+      <div class="menu-wrap">
+        <button type="button" class="menu-trigger" id="btnMenu" aria-expanded="false">Menu <span>☰</span></button>
+        <div class="menu-panel" id="menuPanel" hidden>
+          <span class="menu-title" id="menuTitle">Pengaturan akun</span>
+          <button type="button" class="menu-link" data-panel="profil">Profil</button>
+          <button type="button" class="menu-link" data-panel="tampilan">Ubah background</button>
+          <button type="button" class="menu-link" data-panel="ringkasan">Ringkasan bulanan</button>
+
+          <section class="menu-detail" id="panelProfil" hidden>
+            <label for="namaPengguna">Nama pengguna</label>
+            <input type="text" id="namaPengguna" placeholder="Masukkan nama" />
+            <button type="button" class="menu-action" id="btnSimpanProfil">Simpan profil</button>
+          </section>
+
+          <section class="menu-detail" id="panelTampilan" hidden>
+            <label class="warna-kontrol" for="warnaLatar">
+              <span>Warna latar</span>
+              <input type="color" id="warnaLatar" value="#dfe7e2" />
+            </label>
+            <label class="foto-latar" for="fotoLatar">
+              <span>Foto background</span>
+              <input type="file" id="fotoLatar" accept="image/*" />
+            </label>
+            <label class="opasitas-kontrol" for="opasitasLatar">
+              <span>Ketajaman foto</span>
+              <input type="range" id="opasitasLatar" min="0.15" max="0.85" step="0.05" value="0.65" />
+            </label>
+            <button type="button" class="menu-action" id="btnResetTampilan">Kembalikan tampilan awal</button>
+          </section>
+
+          <section class="menu-detail ringkasan-menu" id="panelRingkasan" hidden>
+            <span class="menu-detail-title">Ringkasan bulan aktif</span>
+            <div class="menu-stat"><span>Pemasukan</span><strong id="menuTotalPemasukan">Rp0</strong></div>
+            <div class="menu-stat"><span>Pengeluaran</span><strong id="menuTotalPengeluaran">Rp0</strong></div>
+            <div class="menu-stat menu-balance"><span>Sisa saldo</span><strong id="menuSisaSaldo">Rp0</strong></div>
+          </section>
+        </div>
+      </div>
+    </header>
+
+    <main class="app">
+      <h1>Catatan Keuangan</h1>
  
     <div class="saldo-box">
       <span>Saldo Awal</span>
@@ -18,25 +64,45 @@
         <button id="btnSetSaldo">Set</button>
       </div>
     </div>
- 
-    <div class="form-tambah">
-      <input type="text" id="namaPengeluaran" placeholder="Nama pengeluaran (mis. Makan)" />
-      <input type="number" id="jumlahPengeluaran" placeholder="Jumlah (mis. 10000)" min="0" />
-      <button id="btnTambah">+ Tambah</button>
+
+    <div class="periode-box">
+      <label for="pilihBulan">Riwayat bulan</label>
+      <input type="month" id="pilihBulan" />
     </div>
  
-    <ul id="daftarPengeluaran" class="daftar"></ul>
+    <div class="mode-switch" role="tablist" aria-label="Jenis transaksi">
+      <button type="button" id="modePengeluaran" class="mode-button aktif">Pengeluaran</button>
+      <button type="button" id="modePemasukan" class="mode-button">Pemasukan</button>
+    </div>
+
+    <div class="form-tambah">
+      <input type="date" id="tanggalPengeluaran" aria-label="Tanggal pengeluaran" />
+      <input type="text" id="namaPengeluaran" placeholder="nama pengeluaran" />
+      <input type="number" id="jumlahPengeluaran" placeholder="Jumlah" min="0" />
+      <label class="foto-input" for="fotoStruk">
+        <span>Foto struk</span>
+        <input type="file" id="fotoStruk" accept="image/*" />
+      </label>
+      <button id="btnTambah">+ Tambah pengeluaran</button>
+    </div>
+ 
+    <div id="daftarPengeluaran" class="daftar"></div>
  
     <div class="ringkasan">
-      <div class="baris">
+      <div class="baris pemasukan-row">
+        <span>Total Pemasukan</span>
+        <span id="totalPemasukan">Rp0</span>
+      </div>
+      <div class="baris pengeluaran-row">
         <span>Total Pengeluaran</span>
         <span id="totalPengeluaran">Rp0</span>
       </div>
       <div class="baris sisa">
-        <span>Sisa Saldo</span>
+        <span>Sisa saldo yang bisa digunakan</span>
         <span id="sisaSaldo">Rp300.000</span>
       </div>
     </div>
+    </main>
   </div>
  
   <script src="project.js"></script>

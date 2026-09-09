@@ -1,6 +1,23 @@
+:root {
+  --ink: #1e2d3d;
+  --muted: #687681;
+  --navy: #18354a;
+  --navy-light: #e8eef0;
+  --paper: #fbfaf6;
+  --paper-deep: #f1efe8;
+  --line: #d8ddd8;
+  --sage: #3d7667;
+  --sage-dark: #2f5f54;
+  --terracotta: #b65f4b;
+}
+
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+[hidden] {
+  display: none !important;
 }
  
 body {
@@ -9,29 +26,271 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #6a8dff, #38b6ff);
-  padding: 24px;
+  background-color: #dfe7e2;
+  background-image:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.62), transparent 38%),
+    repeating-linear-gradient(135deg, rgba(24, 53, 74, 0.035) 0 1px, transparent 1px 14px),
+    linear-gradient(145deg, #dce7e1, #c9d8d0 52%, #e9e4d9);
+  padding: 25px;
+}
+
+.page-shell {
+  width: min(100%, 760px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  margin-bottom: 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--navy);
+  color: #fff;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+.menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid rgba(24, 53, 74, 0.16);
+  border-radius: 8px;
+  background: rgba(251, 250, 246, 0.76);
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.menu-trigger:hover,
+.menu-trigger[aria-expanded="true"] {
+  background: var(--paper);
+  box-shadow: 0 6px 15px rgba(30, 45, 61, 0.1);
+}
+
+.menu-panel {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 270px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  background: rgba(251, 250, 246, 0.98);
+  box-shadow: 0 16px 30px rgba(30, 45, 61, 0.2);
+}
+
+.menu-title,
+.menu-detail-title {
+  display: block;
+  margin: 3px 8px 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-link {
+  display: block;
+  width: 100%;
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 13px;
+  text-align: left;
+}
+
+.menu-link:hover {
+  background: var(--navy-light);
+}
+
+.menu-detail {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0 2px;
+  padding: 10px 8px 4px;
+  border-top: 1px solid var(--line);
+}
+
+.menu-detail label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.menu-detail > input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.menu-action {
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--navy);
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.menu-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.menu-stat strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.menu-balance {
+  margin-top: 3px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.menu-balance strong {
+  color: var(--sage-dark);
 }
  
 .app {
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 22px 45px rgba(30, 45, 61, 0.18), 0 3px 8px rgba(30, 45, 61, 0.08);
+  margin: 0 auto;
 }
  
 h1 {
   text-align: center;
-  margin: 0 0 20px 0;
-  font-size: 22px;
-  color: #23395d;
+  margin: 0 0 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.tampilan-box {
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.tampilan-box summary {
+  padding: 0 0 10px;
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  list-style-position: inside;
+}
+
+.tampilan-kontrol {
+  display: grid;
+  gap: 10px;
+  padding: 4px 0 14px;
+}
+
+.warna-kontrol,
+.foto-latar,
+.opasitas-kontrol {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.warna-kontrol input {
+  width: 42px;
+  height: 28px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.foto-latar input {
+  max-width: 190px;
+  min-width: 0;
+  font-size: 11px;
+}
+
+.opasitas-kontrol input {
+  accent-color: var(--sage);
+}
+
+#btnResetTampilan {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#btnResetTampilan:hover {
+  background: var(--navy-light);
+}
+
+body.custom-background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.custom-color {
+  background-image:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.42), transparent 38%),
+    repeating-linear-gradient(135deg, rgba(24, 53, 74, 0.035) 0 1px, transparent 1px 14px);
 }
  
 .saldo-box {
-  background: #f2f6ff;
-  border: 1px solid #d7e3ff;
+  background: var(--navy-light);
+  border: 1px solid #d3dfe1;
+  border-left: 4px solid var(--sage);
   border-radius: 10px;
   padding: 12px 14px;
   margin-bottom: 16px;
@@ -40,7 +299,7 @@ h1 {
 .saldo-box > span {
   display: block;
   font-size: 12px;
-  color: #6b7a99;
+  color: var(--muted);
   margin-bottom: 6px;
 }
  
@@ -52,100 +311,235 @@ h1 {
  
 .saldo-input span {
   font-weight: bold;
-  color: #23395d;
+  color: var(--ink);
 }
  
 .saldo-input input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccd6f0;
-  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   font-size: 14px;
 }
  
 .saldo-input button {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
-  background: #23395d;
+  border-radius: 10px;
+  background: var(--navy);
   color: white;
   cursor: pointer;
 }
+
+.periode-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.periode-box input {
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 4px;
+  border-radius: 9px;
+  background: var(--navy-light);
+}
+
+.mode-button {
+  padding: 9px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mode-button.aktif {
+  background: var(--paper);
+  color: var(--navy);
+  box-shadow: 0 2px 5px rgba(30, 45, 61, 0.1);
+}
  
 .form-tambah {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) minmax(0, 2fr) minmax(90px, 1fr);
+  gap: 10px;
+  margin-bottom: 32px;
 }
  
 .form-tambah input {
-  flex: 1;
-  min-width: 100px;
+  width: 100%;
   padding: 10px;
-  border: 1px solid #ccd6f0;
+  border: 1px solid var(--line);
   border-radius: 8px;
   font-size: 14px;
 }
  
 .form-tambah button {
+  grid-column: 1 / -1;
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
-  background: #2ecc71;
+  background: var(--sage);
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
+
+.foto-input {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.foto-input input {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  font-size: 12px;
+}
  
 .form-tambah button:hover {
-  background: #27ae60;
+  background: var(--sage-dark);
+}
+
+.form-tambah button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+@media (max-width: 480px) {
+  .form-tambah {
+    grid-template-columns: minmax(0, 1.5fr) minmax(90px, 1fr);
+  }
+
+  .form-tambah input[type="date"],
+  .foto-input,
+  .form-tambah button {
+    grid-column: 1 / -1;
+  }
 }
  
 .daftar {
-  list-style: none;
   margin: 0 0 16px 0;
   padding: 0;
   max-height: 220px;
   overflow-y: auto;
+}
+
+.kelompok-tanggal {
+  margin-bottom: 14px;
+}
+
+.judul-tanggal {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.daftar-hari {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kosong {
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
 }
  
 .daftar li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: #f8f9fc;
-  border: 1px solid #ececf5;
+  padding: 16px 12px;
+  border-radius: 16px;
+  background: var(--paper-deep);
+  border: 1px solid #e2e0d7;
   margin-bottom: 8px;
 }
  
 .daftar li .info {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
  
 .daftar li .info .nama {
   font-weight: 600;
-  color: #23395d;
+  color: var(--ink);
+  overflow-wrap: anywhere;
 }
  
 .daftar li .info .jumlah {
   font-size: 13px;
-  color: #e74c3c;
+  color: var(--terracotta);
+}
+
+.daftar li.pemasukan {
+  background: #edf4ef;
+  border-color: #d4e4d9;
+}
+
+.daftar li.pemasukan .info .jumlah,
+.pemasukan-row span:last-child {
+  color: var(--sage-dark);
+}
+
+.pengeluaran-row span:last-child {
+  color: var(--terracotta);
+}
+
+.struk {
+  width: 56px;
+  height: 56px;
+  margin-left: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
 }
  
 .daftar li button.hapus {
+  flex-shrink: 0;
   border: none;
   background: transparent;
-  color: #e74c3c;
+  color: var(--terracotta);
   font-size: 16px;
   cursor: pointer;
 }
  
 .ringkasan {
-  border-top: 2px dashed #ccd6f0;
+  border-top: 1px solid var(--line);
   padding-top: 12px;
 }
  
@@ -154,11 +548,27 @@ h1 {
   justify-content: space-between;
   margin-bottom: 6px;
   font-size: 14px;
-  color: #23395d;
+  color: var(--ink);
 }
  
 .ringkasan .baris.sisa {
   font-weight: bold;
   font-size: 16px;
-  color: #2ecc71;
+  color: var(--sage-dark);
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .topbar {
+    margin-bottom: 10px;
+  }
+
+  .menu-panel {
+    right: -4px;
+    width: min(270px, calc(100vw - 32px));
+  }
 }

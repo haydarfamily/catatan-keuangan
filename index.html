@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catatan Keuangan Mahasiswa</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>💰 Catatan Keuangan</h1>
+ 
+    <div class="saldo-box">
+      <span>Saldo Awal</span>
+      <div class="saldo-input">
+        <span>Rp</span>
+        <input type="number" id="saldoAwal" value="300000" min="0" />
+        <button id="btnSetSaldo">Set</button>
+      </div>
+    </div>
+ 
+    <div class="form-tambah">
+      <input type="text" id="namaPengeluaran" placeholder="Nama pengeluaran (mis. Makan)" />
+      <input type="number" id="jumlahPengeluaran" placeholder="Jumlah (mis. 10000)" min="0" />
+      <button id="btnTambah">+ Tambah</button>
+    </div>
+ 
+    <ul id="daftarPengeluaran" class="daftar"></ul>
+ 
+    <div class="ringkasan">
+      <div class="baris">
+        <span>Total Pengeluaran</span>
+        <span id="totalPengeluaran">Rp0</span>
+      </div>
+      <div class="baris sisa">
+        <span>Sisa Saldo</span>
+        <span id="sisaSaldo">Rp300.000</span>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="project.js"></script>
+</body>
+</html>

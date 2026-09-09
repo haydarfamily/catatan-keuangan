@@ -9,38 +9,53 @@
 <body>
   <div class="page-shell">
     <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark">CK</span>
-        <span>Catatan Keuangan</span>
-      </div>
-      <div class="menu-wrap">
-        <button type="button" class="menu-trigger" id="btnMenu" aria-expanded="false">Menu <span>☰</span></button>
-        <div class="menu-panel" id="menuPanel" hidden>
-          <span class="menu-title" id="menuTitle">Pengaturan akun</span>
-          <button type="button" class="menu-link" data-panel="profil">Profil</button>
-          <button type="button" class="menu-link" data-panel="tampilan">Ubah background</button>
+      <div class="menu-wrap profile-wrap">
+        <button type="button" class="profile-trigger" id="btnMenu" aria-expanded="false">
+          <img id="fotoProfilMini" class="profile-mini" alt="Foto profil" />
+          <span id="namaProfilMini">Profil</span>
+          <span>⌄</span>
+        </button>
+        <div class="menu-panel profile-panel" id="menuPanel" hidden>
+          <div class="profile-heading">
+            <img id="fotoProfilMenu" class="profile-large" alt="Foto profil" />
+            <div>
+              <strong id="menuTitle">Profil</strong>
+              <span id="profilSubjudul">Kelola akun dan preferensi</span>
+            </div>
+          </div>
+          <button type="button" class="menu-link" data-panel="profil">Biodata profil</button>
+          <button type="button" class="menu-link" data-panel="tampilan">Tema tampilan</button>
           <button type="button" class="menu-link" data-panel="ringkasan">Ringkasan bulanan</button>
+          <button type="button" class="menu-link" data-panel="akun">Beralih akun</button>
 
           <section class="menu-detail" id="panelProfil" hidden>
             <label for="namaPengguna">Nama pengguna</label>
             <input type="text" id="namaPengguna" placeholder="Masukkan nama" />
+            <label for="tanggalLahir">Tanggal lahir</label>
+            <input type="date" id="tanggalLahir" />
+            <label for="statusProfil">Sedang menempuh pendidikan / bekerja</label>
+            <select id="statusProfil">
+              <option value="Pelajar / Mahasiswa">Pelajar / Mahasiswa</option>
+              <option value="Bekerja">Bekerja</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+            <label for="pekerjaanProfil">Kerja sebagai / sekolah dimana</label>
+            <input type="text" id="pekerjaanProfil" placeholder="Contoh: Universitas atau kantor" />
+            <label for="deskripsiProfil">Deskripsi</label>
+            <textarea id="deskripsiProfil" rows="3" placeholder="Tulis deskripsi sesuai keinginan"></textarea>
+            <label class="foto-profil-input" for="fotoProfil">
+              <span>Foto profil</span>
+              <input type="file" id="fotoProfil" accept="image/*" />
+            </label>
             <button type="button" class="menu-action" id="btnSimpanProfil">Simpan profil</button>
           </section>
 
           <section class="menu-detail" id="panelTampilan" hidden>
-            <label class="warna-kontrol" for="warnaLatar">
-              <span>Warna latar</span>
-              <input type="color" id="warnaLatar" value="#dfe7e2" />
-            </label>
-            <label class="foto-latar" for="fotoLatar">
-              <span>Foto background</span>
-              <input type="file" id="fotoLatar" accept="image/*" />
-            </label>
-            <label class="opasitas-kontrol" for="opasitasLatar">
-              <span>Ketajaman foto</span>
-              <input type="range" id="opasitasLatar" min="0.15" max="0.85" step="0.05" value="0.65" />
-            </label>
-            <button type="button" class="menu-action" id="btnResetTampilan">Kembalikan tampilan awal</button>
+            <span class="menu-detail-title">Pilih suasana aplikasi</span>
+            <div class="tema-switch">
+              <button type="button" id="temaGelap" class="tema-button">Dark</button>
+              <button type="button" id="temaTerang" class="tema-button">Light</button>
+            </div>
           </section>
 
           <section class="menu-detail ringkasan-menu" id="panelRingkasan" hidden>
@@ -49,22 +64,24 @@
             <div class="menu-stat"><span>Pengeluaran</span><strong id="menuTotalPengeluaran">Rp0</strong></div>
             <div class="menu-stat menu-balance"><span>Sisa saldo</span><strong id="menuSisaSaldo">Rp0</strong></div>
           </section>
+
+          <section class="menu-detail" id="panelAkun" hidden>
+            <span class="menu-detail-title">Pilih profil</span>
+            <select id="pilihAkun"></select>
+            <button type="button" class="menu-action" id="btnBeralihAkun">Beralih ke profil</button>
+            <button type="button" class="menu-secondary" id="btnTambahAkun">+ Tambah profil baru</button>
+          </section>
         </div>
+      </div>
+      <div class="brand">
+        <span class="brand-mark">CK</span>
+        <span>Catatan Keuangan</span>
       </div>
     </header>
 
     <main class="app">
       <h1>Catatan Keuangan</h1>
  
-    <div class="saldo-box">
-      <span>Saldo Awal</span>
-      <div class="saldo-input">
-        <span>Rp</span>
-        <input type="number" id="saldoAwal" value="300000" min="0" />
-        <button id="btnSetSaldo">Set</button>
-      </div>
-    </div>
-
     <div class="periode-box">
       <label for="pilihBulan">Riwayat bulan</label>
       <input type="month" id="pilihBulan" />
@@ -99,7 +116,7 @@
       </div>
       <div class="baris sisa">
         <span>Sisa saldo yang bisa digunakan</span>
-        <span id="sisaSaldo">Rp300.000</span>
+        <span id="sisaSaldo">Rp0</span>
       </div>
     </div>
     </main>

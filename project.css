@@ -444,6 +444,364 @@ body.custom-color {
     grid-column: 1 / -1;
   }
 }
+
+/* Tema akun dan panel profil */
+:root {
+  --dark-bg: #0d1520;
+  --dark-bg-soft: #152333;
+  --dark-card: #172535;
+  --dark-card-soft: #203247;
+  --dark-line: #30465d;
+  --dark-text: #edf4f5;
+  --dark-muted: #9db0bc;
+}
+
+body {
+  background: radial-gradient(circle at 12% 8%, #233f52 0, transparent 32%),
+    radial-gradient(circle at 90% 90%, #1a3d3c 0, transparent 30%), var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.tema-terang {
+  background: radial-gradient(circle at 10% 8%, #fff3c9 0, transparent 30%),
+    radial-gradient(circle at 92% 90%, #bdebdc 0, transparent 32%), #f7f4e9;
+}
+
+.topbar {
+  flex-direction: row;
+}
+
+.brand {
+  color: var(--dark-text);
+}
+
+.brand-mark {
+  background: var(--sage);
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 9px 5px 5px;
+  border: 1px solid var(--dark-line);
+  border-radius: 999px;
+  background: rgba(23, 37, 53, 0.9);
+  color: var(--dark-text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-trigger:hover,
+.profile-trigger[aria-expanded="true"] {
+  border-color: var(--sage);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-mini,
+.profile-large {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-mini {
+  width: 28px;
+  height: 28px;
+}
+
+.profile-panel {
+  left: 0;
+  right: auto;
+  width: 292px;
+  background: #172535;
+  border-color: var(--dark-line);
+}
+
+.profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 7px 12px;
+  border-bottom: 1px solid var(--dark-line);
+}
+
+.profile-large {
+  width: 44px;
+  height: 44px;
+}
+
+.profile-heading strong,
+.profile-heading span {
+  display: block;
+}
+
+.profile-heading strong {
+  color: var(--dark-text);
+  font-size: 13px;
+}
+
+.profile-heading span {
+  margin-top: 3px;
+  color: var(--dark-muted);
+  font-size: 10px;
+}
+
+.menu-title,
+.menu-detail-title {
+  color: var(--dark-muted);
+}
+
+.menu-link {
+  color: var(--dark-text);
+}
+
+.menu-link:hover {
+  background: var(--dark-card-soft);
+}
+
+.menu-detail {
+  border-color: var(--dark-line);
+}
+
+.menu-detail label,
+.foto-profil-input,
+.menu-stat {
+  color: var(--dark-muted);
+}
+
+.menu-detail > input[type="text"],
+.menu-detail input[type="date"],
+.menu-detail select,
+.menu-detail textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--dark-line);
+  border-radius: 7px;
+  background: #0f1c2a;
+  color: var(--dark-text);
+  font: inherit;
+  font-size: 12px;
+}
+
+.menu-detail textarea {
+  resize: vertical;
+}
+
+.foto-profil-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.foto-profil-input input {
+  max-width: 145px;
+  min-width: 0;
+  font-size: 10px;
+}
+
+.menu-action,
+.menu-secondary {
+  width: 100%;
+}
+
+.menu-secondary {
+  padding: 7px;
+  border: 1px solid var(--dark-line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dark-text);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.menu-stat strong {
+  color: var(--dark-text);
+}
+
+.tema-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.tema-button {
+  padding: 9px;
+  border: 1px solid var(--dark-line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dark-muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tema-button.aktif {
+  border-color: var(--sage);
+  background: var(--sage);
+  color: #fff;
+}
+
+.app {
+  background: rgba(23, 37, 53, 0.96);
+  border-color: var(--dark-line);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+}
+
+h1,
+.saldo-input span,
+.periode-box,
+.daftar li .info .nama,
+.ringkasan .baris {
+  color: var(--dark-text);
+}
+
+.periode-box input,
+.form-tambah input,
+.saldo-input input {
+  border-color: var(--dark-line);
+  background: #0f1c2a;
+  color: var(--dark-text);
+}
+
+.mode-switch {
+  background: #0f1c2a;
+}
+
+.mode-button {
+  color: var(--dark-muted);
+}
+
+.mode-button.aktif {
+  background: var(--dark-card-soft);
+  color: var(--dark-text);
+}
+
+.daftar li {
+  background: var(--dark-card-soft);
+  border-color: var(--dark-line);
+}
+
+.daftar li.pemasukan {
+  background: #173c3d;
+  border-color: #2d6863;
+}
+
+.judul-tanggal,
+.kosong {
+  color: var(--dark-muted);
+}
+
+.ringkasan {
+  border-color: var(--dark-line);
+}
+
+body.tema-terang .profile-trigger {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #d8ddd8;
+  color: #1e2d3d;
+}
+
+body.tema-terang .profile-panel {
+  background: #fbfaf6;
+  border-color: #d8ddd8;
+}
+
+body.tema-terang .profile-heading {
+  border-color: #d8ddd8;
+}
+
+body.tema-terang .profile-heading strong,
+body.tema-terang .menu-link,
+body.tema-terang .menu-stat strong {
+  color: #1e2d3d;
+}
+
+body.tema-terang .profile-heading span,
+body.tema-terang .menu-title,
+body.tema-terang .menu-detail-title,
+body.tema-terang .menu-detail label,
+body.tema-terang .foto-profil-input,
+body.tema-terang .menu-stat {
+  color: #687681;
+}
+
+body.tema-terang .menu-detail,
+body.tema-terang .menu-secondary {
+  border-color: #d8ddd8;
+}
+
+body.tema-terang .menu-detail > input[type="text"],
+body.tema-terang .menu-detail input[type="date"],
+body.tema-terang .menu-detail select,
+body.tema-terang .menu-detail textarea {
+  border-color: #d8ddd8;
+  background: #fff;
+  color: #1e2d3d;
+}
+
+body.tema-terang .app {
+  background: #fbfaf6;
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 22px 45px rgba(30, 45, 61, 0.18);
+}
+
+body.tema-terang h1,
+body.tema-terang .saldo-input span,
+body.tema-terang .periode-box,
+body.tema-terang .daftar li .info .nama,
+body.tema-terang .ringkasan .baris {
+  color: #1e2d3d;
+}
+
+body.tema-terang .periode-box input,
+body.tema-terang .form-tambah input {
+  border-color: #d8ddd8;
+  background: #fff;
+  color: #1e2d3d;
+}
+
+body.tema-terang .mode-switch {
+  background: #e8eef0;
+}
+
+body.tema-terang .mode-button {
+  color: #687681;
+}
+
+body.tema-terang .mode-button.aktif {
+  background: #fbfaf6;
+  color: #18354a;
+}
+
+body.tema-terang .daftar li {
+  background: #f1efe8;
+  border-color: #e2e0d7;
+}
+
+body.tema-terang .daftar li.pemasukan {
+  background: #edf4ef;
+  border-color: #d4e4d9;
+}
+
+body.tema-terang .judul-tanggal,
+body.tema-terang .kosong {
+  color: #687681;
+}
+
+body.tema-terang .ringkasan {
+  border-color: #d8ddd8;
+}
+
+@media (max-width: 480px) {
+  .profile-panel {
+    left: -4px;
+    width: min(292px, calc(100vw - 32px));
+  }
+}
  
 .daftar {
   margin: 0 0 16px 0;
